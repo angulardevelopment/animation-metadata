@@ -1,0 +1,67 @@
+<h3>Animation effect - Basic Example</h3>
+<div
+  (click)="changeState()"
+  style="width:100px; height: 100px; border-radius: 100%;color: green; margin:3rem; background-color: green"
+  [@ballonEffect]="currentState"
+></div>
+
+<h3>New Effect</h3>
+<ul id="menu">
+  <li>
+    <a class="prett" href="#" title="Menu"><span></span></a>
+    <ul class="menus" (mouseleave)="restore()">
+      <li class="has-submenu" *ngFor="let cat of categories">
+        <a class="prett" href="#" (mouseover)="hover(cat)">{{ cat.title }} </a>
+        <ul class="submenu">
+          <li *ngFor="let sc of cat?.sub" [@goals]="'in'">
+            <a href="#" title="Sub Menu" (mouseover)="hoversc( sc.sub)">
+              {{ sc.title }}
+
+              <ul class="subsubmenu">
+                <ng-container *ngFor="let ssc of sc?.sub">
+                  <li *ngIf="ssc.isVisible" [@goals]="'in'">
+                    <a href="#" title="Sub Menu">{{ ssc.secondSub }}</a>
+                  </li>
+                </ng-container>
+              </ul>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div>
+  <div>
+    <h3>My Golads List! New Effect</h3>
+  </div>
+</div>
+<div>
+  <div>
+    <h2>
+      My next goal is:
+    </h2>
+    <form action="">
+      <input
+        type="text"
+        name="goal"
+        placeholder="Learn social skils"
+        [(ngModel)]="goalText"
+      /><br />
+      <input type="submit" [value]="btnText" (click)="addItem()" />
+    </form>
+  </div>
+  <div>
+    <h2>Goal Lists: ({{itemCount}})</h2>
+    <ul>
+      <li
+        [@todoList]="'in'"
+        *ngFor="let goal of goals; let i = index"
+        (click)="removeItem(i)"
+      >
+        {{goal}}
+      </li>
+    </ul>
+  </div>
+</div>
