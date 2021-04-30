@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 import {
   animate,
   trigger,
   state,
   style,
   transition,
-  keyframes
+  keyframes,
+  query
 } from "@angular/animations";
 @Component({
-  selector: 'app-basic',
-  templateUrl: './basic.component.html',
-  styleUrls: ['./basic.component.scss'],
+  selector: "app-basic",
+  templateUrl: "./basic.component.html",
+  styleUrls: ["./basic.component.scss"],
   animations: [
     trigger("ballonEffect", [
       state(
@@ -62,11 +63,34 @@ import {
       transition("* => void", [
         animate(1000, style({ transform: "translateX(100%)" }))
       ])
+    ]),
+    trigger("selectedPress", [
+      state("false", style({ "box-shadow": "0 0 0.5rem #ff0000" })),
+      state("true", style({ "box-shadow": "0 0 0.5rem #000dff" })),
+      transition("false => true", [
+        animate(
+          "1s",
+          keyframes([
+            style({ "box-shadow": "none", offset: 0.5 }),
+            style({ "box-shadow": "0 0 0.5rem #000dff", offset: 1 })
+          ])
+        ),
+        query(".btn", animate("1s", style({ "background-color": "#000dff" })))
+      ]),
+      transition("true => false", [
+        animate(
+          "1s",
+          keyframes([
+            style({ "box-shadow": "none", offset: 0.5 }),
+            style({ "box-shadow": "0 0 0.5rem #ff0000", offset: 1 })
+          ])
+        ),
+        query(".btn", animate("1s", style({ "background-color": "#000dff" })))
+      ])
     ])
   ]
 })
 export class BasicComponent implements OnInit {
-
   currentState = "final";
   changeState() {
     this.currentState = this.currentState === "final" ? "initial" : "final";
@@ -145,23 +169,23 @@ export class BasicComponent implements OnInit {
     ];
 
     this.categories = this.categoryData
-      .filter(c => c.parent_id === null)
+      .filter((c) => c.parent_id === null)
       .map(
-        title =>
+        (title) =>
           <{ title: string; sub: any; subsub: object[] }>{
             title: title.title,
             sub: this.categoryData
-              .filter(sc => sc.parent_id === title.id)
+              .filter((sc) => sc.parent_id === title.id)
               .map(
-                sc =>
+                (sc) =>
                   <{ title: string; sub: any }>{
                     title: sc.title,
                     sub: this.categoryData
                       .filter(
-                        c => c.parent_id !== null && sc.id === c.parent_id
+                        (c) => c.parent_id !== null && sc.id === c.parent_id
                       )
                       .map(
-                        ss =>
+                        (ss) =>
                           <{ secondSub: object[] }>{
                             secondSub: ss.title,
                             isVisible: false
@@ -176,35 +200,35 @@ export class BasicComponent implements OnInit {
   }
 
   hover(category) {
-    this.categories.forEach(ct1 => {
-      ct1.sub.forEach(ct11 => {
+    this.categories.forEach((ct1) => {
+      ct1.sub.forEach((ct11) => {
         ct11.isVisible = false;
-        ct11.sub.forEach(ct111 => {
+        ct11.sub.forEach((ct111) => {
           ct111.isVisible = false;
         });
       });
     });
-    category.sub.forEach(ct => {
+    category.sub.forEach((ct) => {
       ct.isVisible = true;
     });
   }
 
   hoversc(category) {
-    this.categories.forEach(ct1 => {
-      ct1.sub.forEach(ct11 => {
-        ct11.sub.forEach(ct111 => {
+    this.categories.forEach((ct1) => {
+      ct1.sub.forEach((ct11) => {
+        ct11.sub.forEach((ct111) => {
           ct111.isVisible = false;
         });
       });
     });
-    category.forEach(ct => {
+    category.forEach((ct) => {
       ct.isVisible = true;
     });
   }
 
   restore() {
-    this.categories.forEach(cat => {
-      cat.sub.forEach(sub => {
+    this.categories.forEach((cat) => {
+      cat.sub.forEach((sub) => {
         sub.isVisible = false;
       });
     });
@@ -224,5 +248,4 @@ export class BasicComponent implements OnInit {
   removeItem(i) {
     this.goals.splice(i, 1);
   }
-
 }
