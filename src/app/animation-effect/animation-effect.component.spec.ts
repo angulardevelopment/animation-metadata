@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BasicComponent } from './basic.component';
+import { AnimationEffectComponent } from './animation-effect.component';
 
-describe('BasicComponent', () => {
-  let component: BasicComponent;
-  let fixture: ComponentFixture<BasicComponent>;
+describe('AnimationEffectComponent', () => {
+  let component: AnimationEffectComponent;
+  let fixture: ComponentFixture<AnimationEffectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BasicComponent ]
+      declarations: [ AnimationEffectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BasicComponent);
+    fixture = TestBed.createComponent(AnimationEffectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

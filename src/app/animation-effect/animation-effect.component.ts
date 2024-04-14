@@ -9,9 +9,9 @@ import {
   query
 } from "@angular/animations";
 @Component({
-  selector: "app-basic",
-  templateUrl: "./basic.component.html",
-  styleUrls: ["./basic.component.scss"],
+  selector: "app-animation-effect",
+  templateUrl: "./animation-effect.component.html",
+  styleUrls: ["./animation-effect.component.scss"],
   animations: [
     trigger("ballonEffect", [
       state(
@@ -90,7 +90,7 @@ import {
     ])
   ]
 })
-export class BasicComponent implements OnInit {
+export class AnimationEffectComponent implements OnInit {
   currentState = "final";
   changeState() {
     this.currentState = this.currentState === "final" ? "initial" : "final";
