@@ -92,12 +92,16 @@ import {
 })
 export class AnimationEffectComponent implements OnInit {
   currentState = "final";
+  categories;
+  categoryData;
+  itemCount: number;
+  btnText: string = "Add an item";
+  goalText: string = "my first life goal";
+  goals = ["my first goal", "i wnat be the world", "buy new car"];
+
   changeState() {
     this.currentState = this.currentState === "final" ? "initial" : "final";
   }
-
-  categories;
-  categoryData;
 
   ngOnInit() {
     this.categoryData = [
@@ -233,11 +237,6 @@ export class AnimationEffectComponent implements OnInit {
       });
     });
   }
-
-  itemCount: number;
-  btnText: string = "Add an item";
-  goalText: string = "my first life goal";
-  goals = ["my first goal", "i wnat be the world", "buy new car"];
 
   addItem() {
     this.goals.push(this.goalText);

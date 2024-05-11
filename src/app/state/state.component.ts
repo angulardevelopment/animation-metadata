@@ -21,12 +21,13 @@ import {animate,trigger, state, style, transition} from '@angular/animations';
     ]
 })
 export class StateComponent implements OnInit {
+  currentState='final';
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  currentState='final';
+
   changeState() {
   this.currentState = this.currentState == 'final' ? 'initial' : 'final';
   }
