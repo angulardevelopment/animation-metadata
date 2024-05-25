@@ -1,0 +1,26 @@
+
+<div class="list">
+  <h3>Shopping List</h3>
+  <ul>
+    <li
+      *ngFor="let item of todo; trackBy: idForItem"
+      class="todo"
+      (click)="complete(item)"
+    >
+      {{ item.label }}
+    </li>
+  </ul>
+</div>
+
+<div class="list">
+  <h3>Purchased</h3>
+  <ul>
+    <li
+      *ngFor="let item of done; trackBy: idForItem"
+      class="done"
+      (click)="restore(item)"
+    >
+      {{ item.label }}
+    </li>
+  </ul>
+</div>

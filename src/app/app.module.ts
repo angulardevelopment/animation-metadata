@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AnimationEffectComponent } from './animation-effect/animation-effect.component';
 import { FormsModule } from '@angular/forms';
 import { StateComponent } from './state/state.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnimationEffectComponent,
-    StateComponent
+    StateComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
