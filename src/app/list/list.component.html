@@ -5,7 +5,7 @@
     <li
       *ngFor="let item of todo; trackBy: idForItem"
       class="todo"
-      (click)="complete(item)"
+      (click)="completeTodo(item)"
     >
       {{ item.label }}
     </li>

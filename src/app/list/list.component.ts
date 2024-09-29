@@ -31,7 +31,7 @@ export class ListComponent {
     this.subscription = interval(1000)
       .subscribe(() => {
         if ((Math.random() < 0.5 || this.done.length < 3) && this.todo.length > 2) {
-          this.complete(randomItem(this.todo));
+          this.completeTodo(randomItem(this.todo));
         } else {
           this.restore(randomItem(this.done));
         }
@@ -46,7 +46,7 @@ export class ListComponent {
     return item.id;
   }
 
-  complete(item: Item) {
+  completeTodo(item: Item) {
     const itemIndex = this.todo.indexOf(item);
 
     this.todo = [
