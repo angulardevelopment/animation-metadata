@@ -4,10 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimationEffectComponent } from './animation-effect/animation-effect.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StateComponent } from './state/state.component';
 import { ListComponent } from './list/list.component';
 import { KeyframesDemoComponent } from './keyframes-demo/keyframes-demo.component';
+import { ReuseAnimationComponent } from './reuse-animation/reuse-animation.component';
+import { ParentChildAnimationComponent } from './parent-child-animation/parent-child-animation.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,16 @@ import { KeyframesDemoComponent } from './keyframes-demo/keyframes-demo.componen
     AnimationEffectComponent,
     StateComponent,
     ListComponent,
-    KeyframesDemoComponent
+    KeyframesDemoComponent,
+    ReuseAnimationComponent,
+    ParentChildAnimationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

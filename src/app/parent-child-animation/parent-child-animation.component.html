@@ -1,0 +1,9 @@
+<div *ngIf="showParent" @fadeInOut>
+    <h2>Parent Element</h2>
+    <button (click)="toggleChild()">Toggle Child Element</button>
+    <button (click)="removeParent()">Remove Parent Element</button>
+    
+    <div *ngIf="showChild" @fadeInOut>
+      <p>This is the child element. It will fade out before the parent is removed.</p>
+    </div>
+  </div>
