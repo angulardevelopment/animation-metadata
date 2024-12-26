@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { blockInitial, itemAnimation } from './animations';
+import { fadeInAnimation, slideInAnimation } from '../slideanimations';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  animations: [itemAnimation, blockInitial]
+  // This structure promotes cleaner code and enhances maintainability
+  animations: [itemAnimation, blockInitial, fadeInAnimation, slideInAnimation]
 })
 export class ListComponent {
 
@@ -68,6 +70,12 @@ export class ListComponent {
 
     this.todo.push(item);
     this.todo.sort(byLabel);
+  }
+
+  showContent = true;
+
+  toggleContent() {
+    this.showContent = !this.showContent;
   }
 }
 

@@ -24,3 +24,12 @@
     </li>
   </ul>
 </div>
+
+
+<button (click)="toggleContent()">Toggle Content</button>
+<div *ngIf="showContent" @fadeIn>
+  <h1>Fade In Content</h1>
+</div>
+<div *ngIf="!showContent" @slideIn>
+  <h1>Slide In Content</h1>
+</div>
