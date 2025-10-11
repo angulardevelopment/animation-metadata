@@ -21,4 +21,22 @@ export class KeyframesDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+   loading = false;
+  success = false;
+
+  async onClick() {
+    if (this.loading) return;
+    this.success = false;
+    this.loading = true;
+
+    // Simulate async work
+    await new Promise(r => setTimeout(r, 1500));
+
+    this.loading = false;
+    this.success = true;
+
+    // Reset state after a while
+    setTimeout(() => (this.success = false), 1800);
+  }
+
 }

@@ -8,7 +8,7 @@ import { StateComponent } from './state/state.component';
 import { ParentChildAnimationComponent } from './parent-child-animation/parent-child-animation.component';
 
 const routes: Routes = [{
-  path:' Keyframes',
+  path:'Keyframes',
   component: KeyframesDemoComponent
 }, {
   path:'reuse',
