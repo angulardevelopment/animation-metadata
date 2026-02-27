@@ -19,6 +19,8 @@ import { colorAnimation } from './colorAnimation';
       ]),
     ]),
   ],
+  standalone: false,
+
 })
 export class ReuseAnimationComponent implements OnInit {
 

@@ -7,7 +7,7 @@ import { ListComponent } from './list/list.component';
 import { StateComponent } from './state/state.component';
 import { ParentChildAnimationComponent } from './parent-child-animation/parent-child-animation.component';
 
-const routes: Routes = [{
+export const routes: Routes = [{
   path:'Keyframes',
   component: KeyframesDemoComponent
 }, {

@@ -1,4 +1,6 @@
-<div *ngIf="showElement" @animateColor>
+@if (showElement) {
+  <div @animateColor>
     This element changes color!
   </div>
-  <button (click)="toggle()">Toggle Color Animation</button>
+}
+<button (click)="toggle()">Toggle Color Animation</button>

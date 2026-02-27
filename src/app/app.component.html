@@ -1,9 +1,13 @@
-<div *ngIf="routes && routes.length">
+<p>demo</p>
+
+  <div>
     <ul>
-      <li *ngFor="let route of routes">
-        <a [routerLink]="route.path">{{ route.path }} (Component: {{ route.component.name }})</a>
-      </li>
-      
+      @for (route of routes; track route.path) {
+        <li>
+          <a [routerLink]="route.path">{{ route.path }} (Component:)</a>
+        </li>
+      }
     </ul>
   </div>
+
 <router-outlet></router-outlet>

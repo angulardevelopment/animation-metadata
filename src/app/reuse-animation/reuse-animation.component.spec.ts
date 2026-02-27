@@ -8,8 +8,8 @@ describe('ReuseAnimationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReuseAnimationComponent ]
-    })
+    imports: [ReuseAnimationComponent]
+})
     .compileComponents();
   });
 

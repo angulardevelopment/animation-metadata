@@ -18,6 +18,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
       ]),
     ]),
   ],
+  standalone: false,
+
 })
 export class ParentChildAnimationComponent implements OnInit {
 

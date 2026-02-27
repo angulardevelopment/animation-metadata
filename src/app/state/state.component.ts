@@ -31,6 +31,8 @@ import {
       transition('initial=>final', animate('1500ms')),
     ]),
   ],
+  standalone: false,
+
 })
 export class StateComponent implements OnInit {
   currentState = 'final';

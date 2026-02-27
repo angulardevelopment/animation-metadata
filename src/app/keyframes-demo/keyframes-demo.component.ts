@@ -12,7 +12,9 @@ import { Component, OnInit } from '@angular/core';
         animate('1s ease-in', style({ opacity: 1 }))
       ]),
     ])
-  ]
+  ],
+  standalone: false,
+
 })
 export class KeyframesDemoComponent implements OnInit {
 

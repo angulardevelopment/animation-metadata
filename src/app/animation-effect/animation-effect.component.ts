@@ -8,6 +8,7 @@ import {
   keyframes,
   query
 } from "@angular/animations";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 @Component({
   selector: "app-animation-effect",
   templateUrl: "./animation-effect.component.html",
@@ -88,7 +89,10 @@ import {
         query(".btn", animate("1s", style({ "background-color": "#000dff" })))
       ])
     ])
-  ]
+  ],
+  standalone: true,
+  imports: [ReactiveFormsModule, FormsModule],
+
 })
 export class AnimationEffectComponent implements OnInit {
   currentState = "final";

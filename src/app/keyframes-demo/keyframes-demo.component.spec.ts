@@ -8,8 +8,8 @@ describe('KeyframesDemoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KeyframesDemoComponent ]
-    })
+    imports: [KeyframesDemoComponent]
+})
     .compileComponents();
   });
 

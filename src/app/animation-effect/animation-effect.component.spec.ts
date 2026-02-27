@@ -8,8 +8,8 @@ describe('AnimationEffectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AnimationEffectComponent ]
-    })
+    imports: [AnimationEffectComponent]
+})
     .compileComponents();
   });
 

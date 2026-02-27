@@ -10,24 +10,29 @@
   <li>
     <a class="prett" href="#" title="Menu"><span></span></a>
     <ul class="menus" (mouseleave)="restore()">
-      <li class="has-submenu" *ngFor="let cat of categories">
-        <a class="prett" href="#" (mouseover)="hover(cat)">{{ cat.title }} </a>
-        <ul class="submenu">
-          <li *ngFor="let sc of cat?.sub" [@goals]="'in'">
-            <a href="#" title="Sub Menu" (mouseover)="hoversc( sc.sub)">
-              {{ sc.title }}
-
-              <ul class="subsubmenu">
-                <ng-container *ngFor="let ssc of sc?.sub">
-                  <li *ngIf="ssc.isVisible" [@goals]="'in'">
-                    <a href="#" title="Sub Menu">{{ ssc.secondSub }}</a>
-                  </li>
-                </ng-container>
-              </ul>
-            </a>
-          </li>
-        </ul>
-      </li>
+      @for (cat of categories; track cat) {
+        <li class="has-submenu">
+          <a class="prett" href="#" (mouseover)="hover(cat)">{{ cat.title }} </a>
+          <ul class="submenu">
+            @for (sc of cat?.sub; track sc) {
+              <li [@goals]="'in'">
+                <a href="#" title="Sub Menu" (mouseover)="hoversc( sc.sub)">
+                  {{ sc.title }}
+                  <ul class="subsubmenu">
+                    @for (ssc of sc?.sub; track ssc) {
+                      @if (ssc.isVisible) {
+                        <li [@goals]="'in'">
+                          <a href="#" title="Sub Menu">{{ ssc.secondSub }}</a>
+                        </li>
+                      }
+                    }
+                  </ul>
+                </a>
+              </li>
+            }
+          </ul>
+        </li>
+      }
     </ul>
   </li>
 </ul>
@@ -48,25 +53,26 @@
         name="goal"
         placeholder="Learn social skils"
         [(ngModel)]="goalText"
-      /><br />
-      <input type="submit" [value]="btnText" (click)="addItem()" />
-    </form>
+        /><br />
+        <input type="submit" [value]="btnText" (click)="addItem()" />
+      </form>
+    </div>
+    <div>
+      <h2>Goal Lists: ({{itemCount}})</h2>
+      <ul>
+        @for (goal of goals; track goal; let i = $index) {
+          <li
+            [@todoList]="'in'"
+            (click)="removeItem(i)"
+            >
+            {{goal}}
+          </li>
+        }
+      </ul>
+    </div>
   </div>
-  <div>
-    <h2>Goal Lists: ({{itemCount}})</h2>
-    <ul>
-      <li
-        [@todoList]="'in'"
-        *ngFor="let goal of goals; let i = index"
-        (click)="removeItem(i)"
-      >
-        {{goal}}
-      </li>
-    </ul>
-  </div>
-</div>
 
-<!-- <div [@selectedPress]="state" style="box-shadow: 0 0 0.5rem #457ec1">
+  <!-- <div [@selectedPress]="state" style="box-shadow: 0 0 0.5rem #457ec1">
   <div>
     <button class="btn" (click)="state=!state" > click to fade in/out colour</button>
   </div>

@@ -7,7 +7,9 @@ import { fadeInAnimation, slideInAnimation } from '../slideanimations';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   // This structure promotes cleaner code and enhances maintainability
-  animations: [itemAnimation, blockInitial, fadeInAnimation, slideInAnimation]
+  animations: [itemAnimation, blockInitial, fadeInAnimation, slideInAnimation],
+  standalone: false,
+
 })
 export class ListComponent {
 

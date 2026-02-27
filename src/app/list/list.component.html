@@ -2,34 +2,40 @@
 <div class="list">
   <h3>Shopping List</h3>
   <ul>
-    <li
-      *ngFor="let item of todo; trackBy: idForItem"
-      class="todo"
-      (click)="completeTodo(item)"
-    >
-      {{ item.label }}
-    </li>
+    @for (item of todo; track idForItem($index, item)) {
+      <li
+        class="todo"
+        (click)="completeTodo(item)"
+        >
+        {{ item.label }}
+      </li>
+    }
   </ul>
 </div>
 
 <div class="list">
   <h3>Purchased</h3>
   <ul>
-    <li
-      *ngFor="let item of done; trackBy: idForItem"
-      class="done"
-      (click)="restore(item)"
-    >
-      {{ item.label }}
-    </li>
+    @for (item of done; track idForItem($index, item)) {
+      <li
+        class="done"
+        (click)="restore(item)"
+        >
+        {{ item.label }}
+      </li>
+    }
   </ul>
 </div>
 
 
 <button (click)="toggleContent()">Toggle Content</button>
-<div *ngIf="showContent" @fadeIn>
-  <h1>Fade In Content</h1>
-</div>
-<div *ngIf="!showContent" @slideIn>
-  <h1>Slide In Content</h1>
-</div>
+@if (showContent) {
+  <div @fadeIn>
+    <h1>Fade In Content</h1>
+  </div>
+}
+@if (!showContent) {
+  <div @slideIn>
+    <h1>Slide In Content</h1>
+  </div>
+}

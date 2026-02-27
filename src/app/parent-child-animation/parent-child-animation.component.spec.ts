@@ -8,8 +8,8 @@ describe('ParentChildAnimationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParentChildAnimationComponent ]
-    })
+    imports: [ParentChildAnimationComponent]
+})
     .compileComponents();
   });
 

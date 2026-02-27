@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "animation:build"
+            "buildTarget": "animation:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "animation:build:production"
+              "buildTarget": "animation:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "animation:build"
+            "buildTarget": "animation:build"
           }
         },
         "test": {
@@ -127,7 +127,6 @@
       }
     }
   },
-  "defaultProject": "animation",
   "cli": {
     "analytics": "05b1a486-1852-48a1-a03b-f8898c85d9d9"
   }
