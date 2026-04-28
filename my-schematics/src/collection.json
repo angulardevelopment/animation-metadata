@@ -1,0 +1,24 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "my-schematics": {
+      "description": "A blank schematic.",
+      "factory": "./my-schematics/index#mySchematics",
+      "schema": "./my-schematics/schema.json"
+    },
+    "greeter": {
+      "description": "A blank schematic.",
+      "factory": "./greeter/index#greeter",
+      "schema": "./greeter/schema.json"
+    },
+  "component": {
+      "description": "Generate custom component",
+      "factory": "./component/index#component",
+      "schema": "./component/schema.json"
+    },
+    "ng-add": {
+      "description": "Add SCSS folder and directory file scaffolding.",
+      "factory": "./ng-add/index#ngAdd"
+    }
+  }
+}

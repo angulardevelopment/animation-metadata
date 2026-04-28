@@ -21,7 +21,33 @@ I'm Sam, and I'm passionate about product engineering and web development. I cre
 
 ### About the app
 Implemented Animations in Angular.
+npm install -g @angular-devkit/schematics-cli
+schematics blank --name=my-component 
+schematics blank --name=component create new schema under main folder
+npm run build or npm run build -- -w
 
+npm link $PATH_TO_SCHEMATIC_PROJECT // Don’t forget to add @schematics/angular to your dependencies in your package.json
+// This path will vary depending on where you have your schematic project located relative to your test project
+npm link ./my-schematics // if its in same directory
+schematics .:my-schematics
+schematics .:my-schematics --name=test --dry-run=false
+ng generate my-schematics:my-schematics --name=test
+ng generate my-schematics:greeter --name=Alice
+
+ng generate my-schematics:component --name=dashboard-card --path=src/app/shared
+
+schematics my-schematics: --list-schematics
+
+schematics scss-scaffold:ng-add
+in package json update this
+“ng-add”: { 
+   “save”: false 
+}
+https://github.com/sjtrimble/scss-scaffold
+
+https://github.com/sonusathyadas/angular-schematics
+
+https://medium.com/@pratheeshrussell/exploring-angular-schematics-unlocking-powerful-code-generation-5a0149600994
 ## Subscribe and Stay Updated!
 
 Don't miss out on new videos! Subscribe to my channel and hit the notification bell 🔔 to receive updates whenever I upload fresh content. Let's learn, laugh, and explore together!
